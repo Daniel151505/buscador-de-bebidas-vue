@@ -1,14 +1,14 @@
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import { defineStore } from "pinia";
 import APIService from "../services/APIService";
 
 export const useBebidasStore = defineStore("bebidas", () => {
   const categorias = ref([]);
-  const busqueda = ref({
+  const busqueda = reactive({
     nombre: "",
     categoria: "",
   });
-  const recetar = ref([]);
+  const recetas = ref([]);
 
   onMounted(async () => {
     const {
@@ -29,5 +29,6 @@ export const useBebidasStore = defineStore("bebidas", () => {
     categorias,
     busqueda,
     obtenerRecetas,
+    recetas,
   };
 });
