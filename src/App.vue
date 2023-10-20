@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from "vue-router";
 import HeaderVue from "./components/Header.vue";
+import ModalVue from "./components/Modal.vue";
 </script>
 
 <template>
@@ -9,4 +10,6 @@ import HeaderVue from "./components/Header.vue";
   <main class="container mx-auto mt-10">
     <RouterView />
   </main>
+
+  <ModalVue />
 </template>
