@@ -4,6 +4,10 @@ import axios from "axios";
 
 export const useBebidasStore = defineStore("bebidas", () => {
   const categorias = ref([]);
+  const busqueda = ref({
+    nombre: "",
+    categoria: "",
+  });
 
   onMounted(async () => {
     const {
@@ -16,5 +20,6 @@ export const useBebidasStore = defineStore("bebidas", () => {
   });
   return {
     categorias,
+    busqueda,
   };
 });
