@@ -18,8 +18,14 @@ export const useBebidasStore = defineStore("bebidas", () => {
 
     categorias.value = drinks;
   });
+
+  function obtenerRecetas() {
+    console.log(console.log('obtener recetas'))
+  }
+
   return {
     categorias,
     busqueda,
+    obtenerRecetas
   };
 });
