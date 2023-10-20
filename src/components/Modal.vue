@@ -11,6 +11,24 @@ import { useBebidasStore } from "../stores/bebidas";
 
 const modal = useModalStore();
 const bebidas = useBebidasStore();
+
+const formatearIngredientes = () => {
+  const ingredientesDiv = document.createElement("DIV");
+  for (let index = 1; index < 15; index++) {
+    if (bebidas.receta[`strIngredient${index}`]) {
+      const ingrediente = bebidas.receta[`strIngredient${index}`];
+      const cantidad = bebidas.receta[`strMeasure${index}`];
+
+      const ingredienteCantidad = document.createElement("P");
+      ingredienteCantidad.classList.add("text-lg", "text-gray-500");
+      ingredienteCantidad.textContent = `${ingrediente} - ${cantidad}`;
+
+      ingredientesDiv.appendChild(ingredienteCantidad);
+    }
+  }
+
+  return ingredientesDiv;
+};
 </script>
 
 <template>
@@ -56,7 +74,24 @@ const bebidas = useBebidasStore();
                   <img
                     :src="bebidas.receta.strDrinkThumb"
                     :alt="'Imagen de ' + bebidas.receta.strDrink"
+                    class="mx-auto w-96"
                   />
+                  <DialogTitle
+                    as="h3"
+                    class="text-gray-900 text-4xl font-extrabold my-5"
+                  >
+                    Ingredientes y Cantidades
+                  </DialogTitle>
+                  <div v-html="formatearIngredientes().outerHTML"></div>
+                  <DialogTitle
+                    as="h3"
+                    class="text-gray-900 text-4xl font-extrabold my-5"
+                  >
+                    Instrucciones
+                  </DialogTitle>
+                  <p class="text-lg text-gray-500">
+                    {{ bebidas.receta.strInstructions }}
+                  </p>
                 </div>
               </div>
               <div class="mt-5 sm:mt-6 flex justify-between gap-4">
