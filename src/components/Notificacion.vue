@@ -2,9 +2,9 @@
 import { ref } from "vue";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import { XMarkIcon } from "@heroicons/vue/20/solid";
-import { useNotificacionStore } from "../stores/notificaciones";
+import { useNotificacionesStore } from "../stores/notificaciones";
 
-const notificaciones = useNotificacionStore();
+const notificaciones = useNotificacionesStore();
 </script>
 
 <template>
@@ -28,19 +28,21 @@ const notificaciones = useNotificacionStore();
           <div class="p-4">
             <div class="flex items-start">
               <div class="flex-shrink-0">
-                <CheckCircleIcon
+                <XCircleIcon
                   v-if="notificaciones.error"
-                  class="h-6 w-6 text-green-400"
+                  class="h-6 w-6 text-red-400"
                   aria-hidden="true"
                 />
-                <XCircleIcon
+                <CheckCircleIcon
                   v-else
-                  class="h-6 w-6 text-red-400"
+                  class="h-6 w-6 text-green-400"
                   aria-hidden="true"
                 />
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
-                <p class="text-sm font-medium text-gray-900">Notificación</p>
+                <p class="text-sm font-medium text-gray-900 uppercase">
+                  Notificación
+                </p>
                 <p class="mt-1 text-sm text-gray-500">
                   {{ notificaciones.texto }}
                 </p>

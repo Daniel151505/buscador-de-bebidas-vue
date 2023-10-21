@@ -1,7 +1,7 @@
 import { ref, watch } from "vue";
 import { defineStore } from "pinia";
 
-export const useNotificacionStore = defineStore("notificacion", () => {
+export const useNotificacionesStore = defineStore("notificacion", () => {
   const texto = ref("");
   const error = ref(false);
   const mostrar = ref(false);
