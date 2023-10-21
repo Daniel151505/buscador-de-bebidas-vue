@@ -7,16 +7,16 @@ import { useNotificacionesStore } from "../stores/notificaciones";
 const route = useRoute();
 const store = useBebidasStore();
 const notificaciones = useNotificacionesStore();
-const paginaInicio = computed(() => route.name === "inicio");
+const paginaInicio = computed(() => route.name === "home");
 
 const handleSubmit = () => {
   if (Object.values(store.busqueda).includes("")) {
-    notificaciones.texto = "Todos los campos son obligatorios";
+    notificaciones.texto = "All fields are required";
     notificaciones.mostrar = true;
     notificaciones.error = true;
 
     notificaciones.$patch({
-      texto: "Todos los campos son obligatorios",
+      texto: "All fields are required",
       mostrar: true,
       error: true,
     });
@@ -32,26 +32,26 @@ const handleSubmit = () => {
     <div class="mx-auto container px-5 py-16">
       <div class="flex justify-between items-center">
         <div>
-          <RouterLink :to="{ name: 'inicio' }">
+          <RouterLink :to="{ name: 'home' }">
             <img class="w-32" src="/img/logo.svg" alt="Logotipo" />
           </RouterLink>
         </div>
 
         <nav class="flex gap-4 text-white">
           <RouterLink
-            :to="{ name: 'inicio' }"
+            :to="{ name: 'home' }"
             class="uppercase font-bold"
             active-class="text-orange-500"
           >
-            Inicio
+            Home
           </RouterLink>
 
           <RouterLink
-            :to="{ name: 'favoritos' }"
+            :to="{ name: 'favorites' }"
             class="uppercase font-bold"
             active-class="text-orange-500"
           >
-            Favoritos
+            Favorites
           </RouterLink>
         </nav>
       </div>
@@ -64,13 +64,13 @@ const handleSubmit = () => {
           <label
             class="block text-white uppercase font-extrabold text-lg"
             for="ingrediente"
-            >Nombre o Ingredientes
+            >Name or Ingredients
           </label>
           <input
             id="ingrediente"
             type="text"
             class="p-3 w-full rounded-lg focus:outline-none"
-            placeholder="Nombre o Ingrediente: ej. Vodka, Tequila, etc"
+            placeholder="Name or Ingredients: ej. Vodka, Tequila, etc"
             v-model="store.busqueda.nombre"
           />
         </div>
@@ -78,14 +78,14 @@ const handleSubmit = () => {
           <label
             class="block text-white uppercase font-extrabold text-lg"
             for="categoria"
-            >Categoría
+            >Category
           </label>
           <select
             id="categoria"
             class="p-3 w-full rounded-lg focus:outline-none"
             v-model="store.busqueda.categoria"
           >
-            <option value="">-- Seleccione --</option>
+            <option value="">-- Select --</option>
             <option
               v-for="categoria in store.categorias"
               :key="categoria.strCategory"
@@ -99,7 +99,7 @@ const handleSubmit = () => {
         <input
           type="submit"
           class="bg-orange-800 hover:bg-orange-900 cursor-pointer text-white font-extrabold w-full p-2 rounded-lg uppercase"
-          value="Buscar Recetas"
+          value="Search Recipes"
         />
       </form>
     </div>

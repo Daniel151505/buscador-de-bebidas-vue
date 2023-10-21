@@ -84,7 +84,7 @@ const formatearIngredientes = () => {
                     <h6
                       class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-orange-500 antialiased"
                     >
-                      Ingredientes y Cantidades
+                      Ingredients and Quantities
                     </h6>
                     <p
                       class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased"
@@ -93,7 +93,7 @@ const formatearIngredientes = () => {
                     <h6
                       class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-orange-500 antialiased"
                     >
-                      Instrucciones
+                      Instructions
                     </h6>
                     <p
                       class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased"
@@ -107,7 +107,7 @@ const formatearIngredientes = () => {
                       class="w-full rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500"
                       @click="modal.handleClickModal()"
                     >
-                      Cerrar
+                      Close
                     </button>
                     <button
                       type="button"

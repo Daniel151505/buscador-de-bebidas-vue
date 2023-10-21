@@ -43,14 +43,14 @@ export const useFavoritosStore = defineStore("favoritos", () => {
     );
 
     notificaciones.mostrar = true;
-    notificaciones.texto = "Eliminado de favoritos";
+    notificaciones.texto = "Removed from favorites";
   }
 
   function agregarFavorito() {
     favoritos.value.push(bebidas.receta);
 
     notificaciones.mostrar = true;
-    notificaciones.texto = "Se agregó a favoritos";
+    notificaciones.texto = "Added to favorites";
   }
 
   function handleClickFavorito() {
