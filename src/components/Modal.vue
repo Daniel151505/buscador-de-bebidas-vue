@@ -8,7 +8,7 @@ import {
 } from "@headlessui/vue";
 import { useModalStore } from "../stores/modal";
 import { useBebidasStore } from "../stores/bebidas";
-import { useFavoritosStore } from "../stores/bebidas";
+import { useFavoritosStore } from "../stores/favoritos";
 
 const modal = useModalStore();
 const bebidas = useBebidasStore();
